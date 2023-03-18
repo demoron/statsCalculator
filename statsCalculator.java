@@ -3,18 +3,18 @@ import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class statsCalculator{
+public class StatsCalculator{
 
 // declares private double arrays to be used in the calculate methods.
     private double[] values;
-    private double[] sortedValue;
+
 //default constructor,
-    public  statsCalculator(){
+    public  StatsCalculator(){
         this.values = new double[20];
     }
 
     // overloaded constructor with a parameter of a double array.
-    public statsCalculator(double values[]){
+    public StatsCalculator(double values[]){
         this.values = values;
     }
 
@@ -82,12 +82,21 @@ public class statsCalculator{
 
     }
 
-
+public double sortedValues[];
 
 // sets sortedValue equal to the values array and then sorts the new array from least to greatest. Leaving values array unchanged
     public  void sortData (){
-        sortedValue=values;
-        Arrays.sort(sortedValue);
+        int length = values.length;
+        this.sortedValues= new double[length];
+for(int i =0; i < length; i++){
+    sortedValues[i]= values[i];
+}
+
+
+
+
+
+      Arrays.sort(sortedValues);
 
     }
 // prints the values array that the user entered, in the order they entered them in
@@ -104,7 +113,7 @@ public class statsCalculator{
     public  void printSorted(){
         System.out.println("The sorted array is: " );
         for(int i =0; i < values.length; i++){
-            System.out.print(values[i]);
+            System.out.print(sortedValues[i]);
             System.out.print(" ");
 
         }
